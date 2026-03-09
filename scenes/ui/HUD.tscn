@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://hud_scene"]
+
+[ext_resource type="Script" path="res://scenes/ui/HUD.gd" id="1_wx4gf"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_wx4gf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 400.0
+offset_bottom = 120.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HpLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "HP: 0 / 0"
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Status"

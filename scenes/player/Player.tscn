@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://player_scene"]
+
+[ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_qxlp8"]
+[ext_resource type="Script" path="res://systems/player_stats.gd" id="2_ymgx8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ki8l3"]
+radius = 10.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_qxlp8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ki8l3")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(14, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("2_ymgx8")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.35, 0.75, 1, 1)
+polygon = PackedVector2Array(-12, -10, 10, -10, 14, 0, 10, 10, -12, 10)

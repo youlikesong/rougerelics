@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://boss11_scene"]
+
+[ext_resource type="Script" path="res://scenes/enemies/Boss1_1.gd" id="1_1q788"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6p31i"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hs88j"]
+radius = 28.0
+
+[node name="Boss1_1" type="CharacterBody2D"]
+script = ExtResource("1_1q788")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6p31i")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_hs88j")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.5, 0.12, 0.12, 1)
+polygon = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)

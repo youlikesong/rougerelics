@@ -1,0 +1,14 @@
+{
+  "iron_charm": {
+    "name": "Iron Charm",
+    "description": "+20 Max HP",
+    "max_hp_bonus": 20.0,
+    "damage_multiplier": 1.0
+  },
+  "hunter_emblem": {
+    "name": "Hunter Emblem",
+    "description": "+25% Projectile Damage",
+    "max_hp_bonus": 0.0,
+    "damage_multiplier": 1.25
+  }
+}

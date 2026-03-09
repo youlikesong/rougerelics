@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://melee_enemy_scene"]
+
+[ext_resource type="Script" path="res://scenes/enemies/MeleeEnemy.gd" id="1_kh2f8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_69k3h"]
+radius = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d0du"]
+radius = 15.0
+
+[node name="MeleeEnemy" type="CharacterBody2D"]
+script = ExtResource("1_kh2f8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_69k3h")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_4d0du")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.95, 0.3, 0.3, 1)
+polygon = PackedVector2Array(-11, -11, 11, -11, 11, 11, -11, 11)
