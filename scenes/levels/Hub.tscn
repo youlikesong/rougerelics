@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://hub_scene"]
+[gd_scene format=3 uid="uid://dhaam8jb5xy2r"]
 
-[ext_resource type="Script" path="res://scenes/levels/Hub.gd" id="1_f7o5w"]
+[ext_resource type="Script" uid="uid://c07vsu4kbgl3t" path="res://scenes/levels/Hub.gd" id="1_f7o5w"]
 
-[node name="Hub" type="Control"]
+[node name="Hub" type="Control" unique_id=1541801281]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f7o5w")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1267363879]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08, 0.1, 0.12, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=896152818]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,26 +28,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=697621561]
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1141657269]
 layout_mode = 2
 text = "Rogue Relics Hub"
 
-[node name="EquipmentLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="EquipmentLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1642440251]
 layout_mode = 2
 text = "Equipped: None"
 
-[node name="Stage12Status" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Stage12Status" type="Label" parent="CenterContainer/VBoxContainer" unique_id=786543784]
 layout_mode = 2
 text = "Stage 1-2 unlocked: No"
 
-[node name="Stage11Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Stage11Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1093275592]
 layout_mode = 2
 text = "Enter Stage 1-1"
 
-[node name="Stage12Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Stage12Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=307194890]
 layout_mode = 2
 text = "Enter Stage 1-2"

@@ -1,9 +1,29 @@
-[gd_scene format=3 uid="uid://dv7fkr6ang5qa"]
+[gd_scene load_steps=8 format=3 uid="uid://dv7fkr6ang5qa"]
 
 [ext_resource type="Script" path="res://scenes/levels/Stage1_2.gd" id="1_4hj2n"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6c2b8"]
+vertices = PackedVector2Array(-640, -360, 640, -360, 640, -240, -640, -240, -640, -240, -330, -240, -330, 360, -640, 360, -150, -240, 640, -240, 640, -95, -150, -95, 320, -95, 640, -95, 640, 360, 320, 360, -330, 255, 320, 255, 320, 360, -330, 360, -330, 40, -120, 40, -120, 255, -330, 255, -150, -95, 10, -95, 10, 60, -150, 60, 10, 60, 120, 60, 120, 255, 10, 255)
+polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 29, 30, 31)]
+agent_radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w1b8"]
+size = Vector2(68, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gfru"]
+size = Vector2(74, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ndaf"]
+size = Vector2(180, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kx9s"]
+size = Vector2(108, 40)
+
 [node name="Stage1_2" type="Node2D"]
 script = ExtResource("1_4hj2n")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_6c2b8")
 
 [node name="Arena" type="Polygon2D" parent="."]
 color = Color(0.1, 0.16, 0.18, 1)
@@ -13,6 +33,48 @@ polygon = PackedVector2Array(-640, -360, 640, -360, 640, 360, -640, 360)
 
 [node name="BossSpawn" type="Marker2D" parent="."]
 position = Vector2(0, -220)
+
+[node name="ObstacleUpperLeft" type="StaticBody2D" parent="."]
+position = Vector2(-235, -110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleUpperLeft"]
+shape = SubResource("RectangleShape2D_1w1b8")
+
+[node name="Polygon2D" type="Polygon2D" parent="ObstacleUpperLeft"]
+color = Color(0.22, 0.3, 0.33, 1)
+polygon = PackedVector2Array(-34, -85, 34, -85, 34, 85, -34, 85)
+
+[node name="ObstacleLowerRight" type="StaticBody2D" parent="."]
+position = Vector2(215, 140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleLowerRight"]
+shape = SubResource("RectangleShape2D_2gfru")
+
+[node name="Polygon2D" type="Polygon2D" parent="ObstacleLowerRight"]
+color = Color(0.22, 0.3, 0.33, 1)
+polygon = PackedVector2Array(-37, -95, 37, -95, 37, 95, -37, 95)
+
+[node name="ObstacleCenterWall" type="StaticBody2D" parent="."]
+position = Vector2(35, -15)
+rotation = -0.122173
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleCenterWall"]
+shape = SubResource("RectangleShape2D_4ndaf")
+
+[node name="Polygon2D" type="Polygon2D" parent="ObstacleCenterWall"]
+color = Color(0.16, 0.24, 0.28, 1)
+polygon = PackedVector2Array(-90, -26, 90, -26, 90, 26, -90, 26)
+
+[node name="ObstacleBrokenSegment" type="StaticBody2D" parent="."]
+position = Vector2(-75, 170)
+rotation = 0.191986
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleBrokenSegment"]
+shape = SubResource("RectangleShape2D_7kx9s")
+
+[node name="Polygon2D" type="Polygon2D" parent="ObstacleBrokenSegment"]
+color = Color(0.19, 0.27, 0.3, 1)
+polygon = PackedVector2Array(-54, -20, 54, -20, 54, 20, -54, 20)
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 
