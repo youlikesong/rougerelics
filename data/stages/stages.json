@@ -6,7 +6,7 @@
     "boss_drop_pool": ["iron_charm"]
   },
   "1-2": {
-    "scene": "",
+    "scene": "res://scenes/levels/Stage1_2.tscn",
     "unlock_on_start": false,
     "unlock_on_clear": [],
     "boss_drop_pool": ["hunter_emblem"]
