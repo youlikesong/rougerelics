@@ -40,9 +40,19 @@ func _load_progress() -> void:
 		unlocked_stages = cfg.get_value("progress", "unlocked_stages", {})
 		cleared_stages = cfg.get_value("progress", "cleared_stages", {})
 		equipped_item_id = String(cfg.get_value("progress", "equipped_item_id", ""))
+
+	var changed := false
 	if _apply_default_unlocks():
-		_save_progress()
-	elif err != OK:
+		changed = true
+	if _reconcile_cleared_stage_unlocks():
+		changed = true
+
+	# temporary compatibility migration for old saves
+	if is_stage_cleared("1-2") and not is_stage_unlocked("1-3"):
+		unlocked_stages["1-3"] = true
+		changed = true
+
+	if changed or err != OK:
 		_save_progress()
 
 func _apply_default_unlocks() -> bool:
@@ -51,6 +61,19 @@ func _apply_default_unlocks() -> bool:
 		var config: Dictionary = stage_defs[stage_id]
 		if bool(config.get("unlock_on_start", false)) and not bool(unlocked_stages.get(stage_id, false)):
 			unlocked_stages[stage_id] = true
+			changed = true
+	return changed
+
+func _reconcile_cleared_stage_unlocks() -> bool:
+	var changed := false
+	for stage_id: String in cleared_stages.keys():
+		if not bool(cleared_stages.get(stage_id, false)):
+			continue
+		var stage_config: Dictionary = stage_defs.get(stage_id, {})
+		for next_stage: String in stage_config.get("unlock_on_clear", []):
+			if bool(unlocked_stages.get(next_stage, false)):
+				continue
+			unlocked_stages[next_stage] = true
 			changed = true
 	return changed
 

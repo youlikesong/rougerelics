@@ -44,6 +44,10 @@ text = "Equipped: None"
 layout_mode = 2
 text = "Stage 1-2 unlocked: No"
 
+[node name="Stage13Status" type="Label" parent="CenterContainer/VBoxContainer" unique_id=52271854]
+layout_mode = 2
+text = "Stage 1-3 unlocked: No"
+
 [node name="Stage11Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1093275592]
 layout_mode = 2
 text = "Enter Stage 1-1"
@@ -51,3 +55,7 @@ text = "Enter Stage 1-1"
 [node name="Stage12Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=307194890]
 layout_mode = 2
 text = "Enter Stage 1-2"
+
+[node name="Stage13Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=571578535]
+layout_mode = 2
+text = "Enter Stage 1-3"

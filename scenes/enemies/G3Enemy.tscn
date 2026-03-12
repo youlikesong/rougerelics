@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/enemies/G3Enemy.gd" id="1_qx0m6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1p4e"]
+radius = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6v9d"]
+radius = 15.0
+
+[node name="G3Enemy" type="CharacterBody2D"]
+script = ExtResource("1_qx0m6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n1p4e")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 14.0
+target_desired_distance = 20.0
+path_max_distance = 72.0
+radius = 10.0
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_y6v9d")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.43, 0.8, 0.95, 1)
+polygon = PackedVector2Array(0, -14, 13, -6, 10, 12, -10, 12, -13, -6)

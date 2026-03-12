@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/weapons/EnemyProjectile.gd" id="1_5tkgu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h5f8c"]
+radius = 5.0
+
+[node name="EnemyProjectile" type="Area2D"]
+script = ExtResource("1_5tkgu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h5f8c")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.45, 0.34, 1)
+polygon = PackedVector2Array(0, -6, 6, 0, 0, 6, -6, 0)
