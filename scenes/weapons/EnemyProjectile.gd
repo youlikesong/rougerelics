@@ -8,18 +8,16 @@ class_name EnemyProjectile
 var direction: Vector2 = Vector2.DOWN
 
 func _ready() -> void:
+	direction = direction.normalized()
 	body_entered.connect(_on_body_entered)
 	var timer: SceneTreeTimer = get_tree().create_timer(lifetime)
 	timer.timeout.connect(queue_free)
 
 func _physics_process(delta: float) -> void:
-	global_position += direction.normalized() * speed * delta
+	global_position += direction * speed * delta
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player") and body.has_method("apply_damage"):
 		body.apply_damage(damage)
 		queue_free()
 		return
-
-	if body is StaticBody2D:
-		queue_free()
