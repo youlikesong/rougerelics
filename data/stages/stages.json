@@ -20,6 +20,12 @@
   "1-4": {
     "scene": "res://scenes/levels/Stage1_4.tscn",
     "unlock_on_start": false,
+    "unlock_on_clear": ["1-5"],
+    "boss_drop_pool": ["hunter_emblem"]
+  },
+  "1-5": {
+    "scene": "res://scenes/levels/Stage1_5.tscn",
+    "unlock_on_start": false,
     "unlock_on_clear": [],
     "boss_drop_pool": ["hunter_emblem"]
   }

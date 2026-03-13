@@ -6,6 +6,7 @@
 radius = 4.0
 
 [node name="Projectile" type="Area2D"]
+collision_mask = 3
 script = ExtResource("1_6x7lp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
