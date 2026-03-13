@@ -7,6 +7,9 @@ signal died(enemy: EnemyBase)
 @export var max_hp: float = 40.0
 @export var touch_damage: float = 10.0
 @export var attack_cooldown: float = 0.8
+@export var chase_stop_distance: float = 32.0
+@export var chase_separation_distance: float = 22.0
+@export var separation_speed_multiplier: float = 0.4
 
 var _current_hp: float = 0.0
 var _target: Node2D
@@ -42,6 +45,18 @@ func move_toward_target(delta: float, speed: float = -1.0) -> void:
 		speed = move_speed
 
 	var to_target: Vector2 = _target.global_position - global_position
+	var distance_to_target: float = to_target.length()
+	if distance_to_target <= chase_separation_distance:
+		var separation_direction := (-to_target).normalized()
+		if separation_direction == Vector2.ZERO:
+			separation_direction = Vector2.DOWN
+		velocity = separation_direction * (speed * separation_speed_multiplier)
+		move_and_slide()
+		return
+	if distance_to_target <= chase_stop_distance:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
 	var chase_direction: Vector2 = _get_chase_direction(to_target)
 	velocity = chase_direction * speed
 	move_and_slide()
